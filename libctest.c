@@ -13,7 +13,7 @@ int * failed = NULL;
 
 void ct_init(const char * module_name) {
     assert(passed == NULL && failed == NULL);
-    printf("Running tests for %s\n", module_name);
+    printf("Running tests for module \"%s\"\n", module_name);
     passed = malloc(sizeof(int));
     failed = malloc(sizeof(int));
     *passed = 0;
