@@ -11,5 +11,6 @@ int main(void) {
     ct_report("fail more", 0);
     ct_report("fail more", 0);
     
-    ct_print_stats_and_terminate();
+    ct_print_stats();
+    ct_terminate();
 }

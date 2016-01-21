@@ -9,6 +9,4 @@ extern void ct_print_stats(void);
 
 extern void ct_terminate(void);
 
-extern void ct_print_stats_and_terminate(void);
-
 #endif

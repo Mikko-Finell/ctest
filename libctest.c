@@ -60,7 +60,3 @@ void ct_terminate(void) {
     free(failed);
 }
 
-void ct_print_stats_and_terminate(void) {
-    ct_print_stats();
-    ct_terminate();
-}
