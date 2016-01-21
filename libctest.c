@@ -6,14 +6,13 @@
 #define NORMAL  "\x1B[0m"
 #define RED     "\x1B[31m"
 #define GREEN   "\x1B[32m"
-#define BLUE    "\x1B[34m"
 
 int * passed = NULL;
 int * failed = NULL;
 
 void ct_init(const char * module_name) {
     assert(passed == NULL && failed == NULL);
-    printf("Running tests for module \"%s\"\n", module_name);
+    printf("\nRunning tests for module \"%s\"\n", module_name);
     passed = malloc(sizeof(int));
     failed = malloc(sizeof(int));
     *passed = 0;
@@ -51,7 +50,7 @@ void ct_print_stats(void) {
         } else if (np > 0) {
             rate = 100 * (double)np / (double)(nf + np);
         }
-        printf("Passed: %i/%i (%.1f%%)\e\n", np, tot, rate);
+        printf("Passed: %i/%i (%.1f%%)\e\n\n", np, tot, rate);
     }
 }
 
