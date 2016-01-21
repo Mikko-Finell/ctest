@@ -37,7 +37,7 @@ void ct_report(const char * test_name, int status) {
     printf("%s] %s\n", NORMAL, test_name);
 }
 
-void ct_terminate(void) {
+void ct_print_stats(void) {
     int nf = (double)*failed;
     int np = (double)*passed;
     int tot = nf + np;
@@ -49,11 +49,18 @@ void ct_terminate(void) {
         if (nf == 0) {
             rate = 100;
         } else if (np > 0) {
-            rate = (double)np / (double)(nf + np);
+            rate = 100 * (double)np / (double)(nf + np);
         }
-        printf("Passed: %i/%i (%.1f%%)\e\n", np, tot, 100.0 * rate);
+        printf("Passed: %i/%i (%.1f%%)\e\n", np, tot, rate);
     }
+}
 
+void ct_terminate(void) {
     free(passed);
     free(failed);
+}
+
+void ct_print_stats_and_terminate(void) {
+    ct_print_stats();
+    ct_terminate();
 }
