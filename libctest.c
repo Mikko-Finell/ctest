@@ -25,12 +25,11 @@ void ct_report(const char * test_name, int status) {
         exit(1);
     }
 
-    printf("[");
     if (status == 1) {
-        printf("%sPASSED", GREEN);
+        printf(" [%sPASSED", GREEN);
         (*passed)++;
     } else {
-        printf("%sFAILED", RED);
+        printf(" [%sFAILED", RED);
         (*failed)++;
     }
     printf("%s] %s\n", NORMAL, test_name);
