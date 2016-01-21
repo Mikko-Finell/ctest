@@ -49,7 +49,7 @@ void ct_print_stats(void) {
         } else if (np > 0) {
             rate = 100 * (double)np / (double)(nf + np);
         }
-        printf("Passed: %i/%i (%.1f%%)\e\n\n", np, tot, rate);
+        printf("Passed: %i/%i (%.1f%%)\n\n", np, tot, rate);
     }
 }
 
