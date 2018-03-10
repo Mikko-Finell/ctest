@@ -7,6 +7,4 @@ extern void ct_report(const char * test_name, int success);
 
 extern void ct_print_stats(void);
 
-extern void ct_terminate(void);
-
 #endif

@@ -1,4 +1,4 @@
-#include "libctest.h"
+#include "ctest.h"
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
@@ -7,16 +7,11 @@
 #define RED     "\x1B[31m"
 #define GREEN   "\x1B[32m"
 
-int * passed = NULL;
-int * failed = NULL;
+static int passed;
+static int failed;
 
 void ct_init(const char * module_name) {
-    assert(passed == NULL && failed == NULL);
     printf("\nRunning tests for module \"%s\"\n", module_name);
-    passed = malloc(sizeof(int));
-    failed = malloc(sizeof(int));
-    *passed = 0;
-    *failed = 0;
 }
 
 void ct_report(const char * test_name, int status) {
@@ -27,17 +22,17 @@ void ct_report(const char * test_name, int status) {
 
     if (status == 1) {
         printf(" [%sPASSED", GREEN);
-        (*passed)++;
+        ++passed;
     } else {
         printf(" [%sFAILED", RED);
-        (*failed)++;
+        ++failed;
     }
     printf("%s] %s\n", NORMAL, test_name);
 }
 
 void ct_print_stats(void) {
-    int nf = (double)*failed;
-    int np = (double)*passed;
+    int nf = (double)failed;
+    int np = (double)passed;
     int tot = nf + np;
 
     if (tot == 0) {
@@ -52,9 +47,3 @@ void ct_print_stats(void) {
         printf("Passed: %i/%i (%.1f%%)\n\n", np, tot, rate);
     }
 }
-
-void ct_terminate(void) {
-    free(passed);
-    free(failed);
-}
-

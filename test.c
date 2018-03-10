@@ -1,4 +1,4 @@
-#include "libctest.h"
+#include <ctest.h>
 
 int main(void) {
     ct_init("testsuit");
