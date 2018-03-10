@@ -13,7 +13,7 @@ lib: libctest.so
 
 # may need to run ldconfig, or change to /usr/lib/
 SODIR=/usr/local/lib/
-IDIR=/usr/local/include
+IDIR=/usr/local/include/
 install: lib
 	cp libctest.so $(SODIR)
 	cp ctest.h $(IDIR)

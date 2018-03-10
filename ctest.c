@@ -1,6 +1,5 @@
 #include "ctest.h"
 #include <stdio.h>
-#include <assert.h>
 #include <stdlib.h>
 
 #define NORMAL  "\x1B[0m"
@@ -12,6 +11,8 @@ static int failed;
 
 void ct_init(const char * module_name) {
     printf("\nRunning tests for module \"%s\"\n", module_name);
+    passed = 0;
+    failed = 0;
 }
 
 void ct_report(const char * test_name, int status) {
