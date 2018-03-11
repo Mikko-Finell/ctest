@@ -2,7 +2,7 @@
 
 CC=cc
 EXE=test
-CFLAGS=-g -Wall -Wextra -std=c99
+CFLAGS=-g -Wall -Wextra -ansi -pedantic
 #CFLAGS=-std=c99 -O3
 
 ############## targets

@@ -14,4 +14,6 @@ int main(void) {
     ct_report("fail more", CTEST_FAILURE);
     
     ct_summary();
+
+    return 0;
 }
