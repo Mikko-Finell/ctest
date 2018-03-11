@@ -5,9 +5,7 @@
 #define CTEST_FAILURE 0
 
 extern void ct_init(const char * module_name);
-
 extern void ct_report(const char * test_name, int success);
-
-extern void ct_print_stats(void);
+extern void ct_summary(void);
 
 #endif

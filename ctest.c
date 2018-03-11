@@ -31,7 +31,7 @@ void ct_report(const char * test_name, int status) {
     printf("%s] %s\n", NORMAL, test_name);
 }
 
-void ct_print_stats(void) {
+void ct_summary(void) {
     const int tot = passed + failed;
 
     if (tot)

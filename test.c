@@ -1,7 +1,7 @@
 #include <ctest.h>
 
 int main(void) {
-    ct_print_stats();
+    ct_summary();
 
     ct_init("testsuit");
 
@@ -13,5 +13,5 @@ int main(void) {
     ct_report("fail more", CTEST_FAILURE);
     ct_report("fail more", CTEST_FAILURE);
     
-    ct_print_stats();
+    ct_summary();
 }
