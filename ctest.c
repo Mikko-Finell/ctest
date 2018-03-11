@@ -16,12 +16,12 @@ void ct_init(const char * module_name) {
 }
 
 void ct_report(const char * test_name, int status) {
-    if (status < 0 || status > 1) {
+    if (status != CTEST_SUCCESS && status != CTEST_FAILURE) {
         printf("Invalid report argument for test \"%s\"\n", test_name);
-        exit(1);
+        exit(EXIT_FAILURE);
     }
 
-    if (status == 1) {
+    if (status == CTEST_SUCCESS) {
         printf(" [%sPASSED", GREEN);
         ++passed;
     } else {
@@ -32,19 +32,17 @@ void ct_report(const char * test_name, int status) {
 }
 
 void ct_print_stats(void) {
-    int nf = (double)failed;
-    int np = (double)passed;
-    int tot = nf + np;
+    const int tot = passed + failed;
 
     if (tot == 0) {
         printf("No tests yet...\n");
     } else {
         double rate = 0;
-        if (nf == 0) {
+        if (failed == 0)
             rate = 100;
-        } else if (np > 0) {
-            rate = 100 * (double)np / (double)(nf + np);
-        }
-        printf("Passed: %i/%i (%.1f%%)\n\n", np, tot, rate);
+        else if (passed > 0)
+            rate = 100 * (double)passed / (double)(tot);
+        
+        printf("Passed: %i/%i (%.1f%%)\n\n", passed, tot, rate);
     }
 }
