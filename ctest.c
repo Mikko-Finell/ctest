@@ -34,15 +34,9 @@ void ct_report(const char * test_name, int status) {
 void ct_print_stats(void) {
     const int tot = passed + failed;
 
-    if (tot == 0) {
-        printf("No tests yet...\n");
-    } else {
-        double rate = 0;
-        if (failed == 0)
-            rate = 100;
-        else if (passed > 0)
-            rate = 100 * (double)passed / (double)(tot);
-        
-        printf("Passed: %i/%i (%.1f%%)\n\n", passed, tot, rate);
-    }
+    if (tot)
+        printf("Passed: %i/%i (%.1f%%)\n\n", passed, tot,
+            tot ? 100 * (double)passed / (double)tot : 100);
+    else
+        printf("No results recorded...\n");
 }

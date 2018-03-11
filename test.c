@@ -1,6 +1,8 @@
 #include <ctest.h>
 
 int main(void) {
+    ct_print_stats();
+
     ct_init("testsuit");
 
     ct_report("pass test", CTEST_SUCCESS);
